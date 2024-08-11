@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto list">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php">INICIO</a>
+                    <a class="nav-link" href="./indexAdmin.php">INICIO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">QUIENES SOMOS</a>
@@ -23,6 +23,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">CONTACTENOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./personalizar.php">PERSONALIZAR</a>
                 </li>
             </ul>
             <form class="d-flex">

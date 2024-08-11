@@ -28,7 +28,11 @@ if (isset($_POST['login'])) {
 
             if (password_verify($contrasena, $usuario['contraseña'])) {
                 $_SESSION['usuario'] = $usuario;
-                header("Location: ../index.php");
+                if ($usuario['privilegio'] == 'administrador') {
+                    header("Location: ../indexAdmin.php");
+                } else {
+                    header("Location: ../index.php");
+                }
                 exit();
             } else {
                 $errores['login'] = "Credenciales incorrectas";

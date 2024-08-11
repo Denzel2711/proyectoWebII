@@ -15,10 +15,11 @@ include_once 'php/mostrar.php';
     <link rel="stylesheet" type="text/css" href="./php/dynamic-styles.php">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <?php include_once './assets/include/navbar.php'; ?>
+    <?php include_once './assets/include/navbarAdmin.php'; ?>
     <?php include_once './assets/include/heroSection.php'; ?>
     <?php include_once './assets/include/quienesSomos.php'; ?>
     <?php include_once './assets/include/propiedadesDestacadas.php'; ?>
