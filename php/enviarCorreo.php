@@ -1,6 +1,6 @@
 <?php
 
-include 'conexion.php'; // Incluye el archivo de conexión
+include 'conexion.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $captcha = $_POST['g-recaptcha-response'];
 
-    // Verificación del CAPTCHA
     if (!$captcha) {
         echo "Por favor, verifica el captcha.";
         exit;
@@ -37,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Configuración de PHPMailer
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
