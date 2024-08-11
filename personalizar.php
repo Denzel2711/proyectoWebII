@@ -1,4 +1,13 @@
-<?php include_once 'php/mostrar.php'; ?>
+<?php include_once 'php/mostrar.php';
+include './php/session.php';
+if (!isset($_SESSION['usuario'])) {
+    header("Cache-Control: no-cache, no-store, must-revalidate");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+    header("Location: login.php");
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="es">

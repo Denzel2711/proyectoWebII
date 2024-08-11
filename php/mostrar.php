@@ -65,6 +65,12 @@ function mostrarInformacionQuienesSomos()
     echo htmlspecialchars($informacion_quienes_somos);
 }
 
+function mostrarEnlaceTwitter()
+{
+    $enlace_twitter = obtenerDatoColumna('enlace_twitter');
+    echo htmlspecialchars($enlace_twitter);
+}
+
 function mostrarEnlaceFacebook()
 {
     $enlace_facebook = obtenerDatoColumna('enlace_facebook');

@@ -1,7 +1,16 @@
 <?php
 require_once './php/conexion.php';
 require_once './php/crudRoles.php';
+include './php/session.php';
+if (!isset($_SESSION['usuario'])) {
+    header("Cache-Control: no-cache, no-store, must-revalidate"); 
+    header("Pragma: no-cache");
+    header("Expires: 0"); 
+    header("Location: login.php");
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -96,7 +105,7 @@ require_once './php/crudRoles.php';
                                         <select class="form-select" name="role_id" onchange="this.form.submit()">
                                             <option value="administrador" <?php echo $row['privilegio'] == 'administrador' ? 'selected' : ''; ?>>Administrador</option>
                                             <option value="agente_de_ventas" <?php echo $row['privilegio'] == 'agente_de_ventas' ? 'selected' : ''; ?>>Ventas</option>
-                                            <option value="agente_de_ventas" <?php echo $row['privilegio'] == 'publico' ? 'selected' : ''; ?>>Publico</option>
+                                            <option value="publico" <?php echo $row['privilegio'] == 'publico' ? 'selected' : ''; ?>>Publico</option>
                                         </select>
                                     </form>
                                 </td>
