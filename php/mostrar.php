@@ -5,7 +5,7 @@ function obtenerDatoColumna($columna)
 {
     global $conection;
 
-    $sql = "SELECT $columna FROM configuracionsitio WHERE id = 1";
+    $sql = "SELECT $columna FROM configuracionsitio";
     $result = mysqli_query($conection, $sql);
 
     if ($result) {

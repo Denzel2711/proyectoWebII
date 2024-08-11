@@ -20,11 +20,21 @@ include_once 'php/mostrar.php';
 <body>
     <?php include_once './assets/include/navbar.php'; ?>
     <?php include_once './assets/include/heroSection.php'; ?>
-    <?php include_once './assets/include/quienesSomos.php'; ?>
-    <?php include_once './assets/include/propiedadesDestacadas.php'; ?>
-    <?php include_once './assets/include/propiedadesVenta.php'; ?>
-    <?php include_once './assets/include/propiedadesAlquiler.php'; ?>
-    <?php include_once './assets/include/footer.php'; ?>
+    <div id="quienesSomos">
+        <?php include_once './assets/include/quienesSomos.php'; ?>
+    </div>
+    <div id="destacadas">
+        <?php include_once './assets/include/propiedadesDestacadas.php'; ?>
+    </div>
+    <div id="ventas">
+        <?php include_once './assets/include/propiedadesVenta.php'; ?>
+    </div>
+    <div id="alquileres">
+        <?php include_once './assets/include/propiedadesAlquiler.php'; ?>
+    </div>
+    <div id="footer">
+        <?php include_once './assets/include/footer.php'; ?>
+    </div>
 </body>
 
 </html>

@@ -8,20 +8,15 @@ body {
     padding: 20px;
 }
 
-.custom-card h2 {
-    color: #ffc107;
-}
 
-#personalizar
-.form-control,
+#personalizar .form-control,
 .form-select {
     background-color: #343a40;
     color: white;
     border: none;
 }
 
-#personalizar
-.form-control:focus,
+#personalizar .form-control:focus,
 .form-select:focus {
     box-shadow: none;
     background-color: #495057;

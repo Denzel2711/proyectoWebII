@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conexion.php';
 
 if (isset($_POST['login'])) {
@@ -29,7 +30,7 @@ if (isset($_POST['login'])) {
             if (password_verify($contrasena, $usuario['contraseña'])) {
                 $_SESSION['usuario'] = $usuario;
                 if ($usuario['privilegio'] == 'administrador') {
-                    header("Location: ../indexAdmin.php");
+                    header("Location: ../index.php");
                 } else {
                     header("Location: ../index.php");
                 }

@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 
     if (count($errores) == 0) {
         $pass_encrip = password_hash($contrasena, PASSWORD_BCRYPT, ['cost' => 4]);
-        $privilegio = 'administrador';
+        $privilegio = 'publico';
         $sql = "INSERT INTO usuarios (nombre, telefono, correo, usuario, contraseña, privilegio) 
                 VALUES ('$nombre', '$telefono', '$correo', '$usuario', '$pass_encrip', '$privilegio');";
 

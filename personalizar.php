@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <?php include_once './assets/include/navbarAdmin.php'; ?>
+    <?php include_once './assets/include/navbar.php'; ?>
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
