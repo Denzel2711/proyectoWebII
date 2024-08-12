@@ -1,5 +1,5 @@
 <?php
-include './php/session.php'; 
+include './php/session.php';
 include './php/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
@@ -48,10 +48,10 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                         </li>
                     <?php elseif ($privilegio == 'agente_de_ventas') : ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ventas.php">MIS VENTAS</a>
+                            <a class="nav-link" href="./index.php">MIS PROPIEDADES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ventas.php">CREAR VENTA</a>
+                            <a class="nav-link" href="./ingresarPropiedad.php">CREAR VENTA</a>
                         </li>
                     <?php endif; ?>
                 </ul>
