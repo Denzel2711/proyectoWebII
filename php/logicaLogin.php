@@ -48,3 +48,6 @@ if (isset($_POST['login'])) {
         exit();
     }
 }
+
+mysqli_close($conection);
+

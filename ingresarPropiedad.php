@@ -32,7 +32,7 @@ if (!isset($_SESSION['usuario'])) {
             <div class="col-md-8">
                 <div class="bg-dark custom-card">
                     <h2 class="text-center">Ingresar Propiedad</h2>
-                    <form action="php/logicaPersonalizar.php" method="POST" enctype="multipart/form-data" class="mt-4" id="personalizar">
+                    <form action="php/logicaIngresarPropiedad.php" method="POST" enctype="multipart/form-data" class="mt-4" id="personalizar">
 
                         <div class="mb-3">
                             <label for="color_tema" class="form-label">Tipo de Propiedad</label>
@@ -45,8 +45,8 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="mb-3">
                             <label for="destacada" class="form-label">Destacada</label>
                             <select class="form-select" name="destacada" id="destacada">
-                                <option value="false">No</option>
-                                <option value="true">Si</option>
+                                <option value="0">No</option>
+                                <option value="1">Si</option>
                             </select>
                         </div>
 
