@@ -48,6 +48,9 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                         </li>
                     <?php elseif ($privilegio == 'agente_de_ventas') : ?>
                         <li class="nav-item">
+                            <a class="nav-link" href="./index.php">INICIO</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="./misPropiedades.php">MIS PROPIEDADES</a>
                         </li>
                         <li class="nav-item">
