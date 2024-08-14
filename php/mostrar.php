@@ -47,22 +47,10 @@ function mostrarImagen($columna)
     }
 }
 
-function mostrarColor1()
+function mostrarColorTema()
 {
-    $color_1 = obtenerDatoColumna('color_1');
-    echo htmlspecialchars($color_1);
-}
-
-function mostrarColor2()
-{
-    $color_2 = obtenerDatoColumna('color_2');
-    echo htmlspecialchars($color_2);
-}
-
-function mostrarColor3()
-{
-    $color_3 = obtenerDatoColumna('color_3');
-    echo htmlspecialchars($color_3);
+    $color_tema = obtenerDatoColumna('color_tema');
+    echo htmlspecialchars($color_tema);
 }
 
 function mostrarMensajeBanner()
@@ -122,6 +110,11 @@ function mostrarEmail()
 function mostrarIconoPrincipal()
 {
     mostrarImagen('icono_principal_id');
+}
+
+function mostrarIconoBlanco()
+{
+    mostrarImagen('icono_blanco_id');
 }
 
 function mostrarImagenBanner()

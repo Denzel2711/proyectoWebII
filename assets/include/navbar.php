@@ -15,10 +15,10 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
     }
 </style>
 
-<nav class="navbar navbar-expand-lg" style="background-color:<?php mostrarColor1() ?>;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="<?php mostrarIconoPrincipal() ?>" alt="UTN Solutions Real Estate" class="ms-2" width="80" height="70px">
+            <h2 class="mb-0">Luxury Real State</h2>
             <?php if (isset($_SESSION['usuario'])) : ?>
                 <span class="nav-link text-light ms-4">
                     Hola <i class="bi bi-hand-thumbs-up"></i>, <?php echo htmlspecialchars($nombreUsuario); ?>

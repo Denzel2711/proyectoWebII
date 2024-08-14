@@ -1,4 +1,4 @@
-<footer class="py-4" style="background-color: <?php mostrarColor3(); ?>; color: <?php mostrarColor1(); ?>;">
+<footer class="bg-warning text-dark py-4">
     <div class="container">
         <div class="row text-center align-items-center">
             <div class="col-md-4">
