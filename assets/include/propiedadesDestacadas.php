@@ -18,9 +18,6 @@ include_once './php/mostrarDestacados.php';
                 </div>
             <?php endwhile; ?>
             <div class="d-flex justify-content-center mt-5">
-                <a href="#" class="btn" id="vermas" style="border-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor2(); ?>;"
-                    onmouseover="this.style.backgroundColor='<?php mostrarColor2(); ?>', this.style.color='<?php mostrarColor1(); ?>';"
-                    onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor2(); ?>';">VER MÁS...</a>
             </div>
         </div>
 </section>

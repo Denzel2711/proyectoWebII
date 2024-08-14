@@ -56,6 +56,22 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                         <li class="nav-item">
                             <a class="nav-link" href="./ingresarPropiedad.php">CREAR VENTA</a>
                         </li>
+                    <?php elseif ($privilegio == 'publico') : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.php">INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#destacadas">DESTACADAS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./ventas.php">VENTAS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./alquileres.php">ALQUILERES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer">CONTACTENOS</a>
+                        </li>
                     <?php endif; ?>
                 </ul>
                 <form class="d-flex">

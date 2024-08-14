@@ -18,7 +18,7 @@ include_once './php/mostrarVentas.php';
                 </div>
             <?php endwhile; ?>
             <div class="d-flex justify-content-center mt-5">
-                <a href="#" class="btn" id="vermas" style="border-color: <?php mostrarColor1(); ?>; color: <?php mostrarColor1(); ?>;"
+                <a href="./ventas.php" class="btn" id="vermas" style="border-color: <?php mostrarColor1(); ?>; color: <?php mostrarColor1(); ?>;"
                     onmouseover="this.style.backgroundColor='<?php mostrarColor1(); ?>', this.style.color='<?php mostrarColor2(); ?>';"
                     onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor1(); ?>';">VER MÁS...</a>
             </div>

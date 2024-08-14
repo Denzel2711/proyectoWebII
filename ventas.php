@@ -2,16 +2,9 @@
 include_once './php/conexion.php';
 include './php/session.php';
 include './php/mostrar.php';
+include_once './php/ventas.php';
 
 $usuario_id = isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : '';
-
-$query = "SELECT propiedades.*, imagenes.direccion AS imagen_ruta 
-          FROM propiedades 
-          JOIN imagenes ON propiedades.imagen_id = imagenes.id 
-          WHERE propiedades.agente_id = '$usuario_id'";
-
-$resultado = mysqli_query($conection, $query);
-
 ?>
 
 <!DOCTYPE html>
@@ -32,19 +25,16 @@ $resultado = mysqli_query($conection, $query);
     <?php include_once './assets/include/navbar.php'; ?>
     <br>
     <div class="container">
-        <h1 class="text-center mb-5">MIS PROPIEDADES</h1>
+        <h1 class="text-center mb-5">PROPIEDADES EN VENTA</h1>
         <div class="row">
             <?php while ($propiedad = mysqli_fetch_assoc($resultado)) : ?>
                 <div class="col-md-4 mb-5">
                     <div class="card" style="background-color: <?php mostrarColor1(); ?>;">
-                        <img src="<?php echo $propiedad['imagen_ruta']; ?>" alt="<?php echo $propiedad['titulo']; ?>">
+                        <img src="<?php echo $propiedad['imagen']; ?>" alt="<?php echo $propiedad['titulo']; ?>">
                         <div class="card-body">
                             <h5 class="card-title text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['titulo']; ?></h5>
                             <p class="card-text text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['descripcion']; ?></p>
                             <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio: $<?php echo number_format($propiedad['precio']); ?></p>
-                            <div class="d-flex justify-content-center">
-                                <a href="#" class="btn" id="vermas" style="border-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor2(); ?>;" onmouseover="this.style.backgroundColor='<?php mostrarColor2(); ?>', this.style.color='<?php mostrarColor1(); ?>';" onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor2(); ?>';">VER MÁS...</a>
-                            </div>
                         </div>
                     </div>
                 </div>
