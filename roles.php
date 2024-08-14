@@ -2,6 +2,8 @@
 require_once './php/conexion.php';
 require_once './php/crudRoles.php';
 include './php/session.php';
+include './php/mostrar.php';
+
 if (!isset($_SESSION['usuario'])) {
     header("Cache-Control: no-cache, no-store, must-revalidate"); 
     header("Pragma: no-cache");
@@ -74,7 +76,6 @@ if (!isset($_SESSION['usuario'])) {
 </style>
 
 <body>
-    <?php include_once './assets/include/navbar.php'; ?>
     <section id="section-principal">
         <h1 class="text-center">Usuarios Registrados</h1>
         <?php if (mysqli_num_rows($resultUsuarios) > 0) : ?>

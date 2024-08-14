@@ -22,7 +22,7 @@ function subirImagen($fileInput)
     $tipoArchivo = strtolower(pathinfo($archivoAbsoluto, PATHINFO_EXTENSION));
 
     if (isset($_FILES[$fileInput]) && $_FILES[$fileInput]['size'] > 0) {
-        if ($tipoArchivo == "jpg" || $tipoArchivo == "jpeg" || $tipoArchivo == "png" || $tipoArchivo == "gif") {
+        if ($tipoArchivo == "jpg" || $tipoArchivo == "jpeg" || $tipoArchivo == "png" || $tipoArchivo == "gif" || $tipoArchivo == "webp") {
             if (move_uploaded_file($_FILES[$fileInput]["tmp_name"], $archivoAbsoluto)) {
                 return $archivoRelativo;
             }
