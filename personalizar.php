@@ -35,22 +35,23 @@ if (!isset($_SESSION['usuario'])) {
                     <form action="php/logicaPersonalizar.php" method="POST" enctype="multipart/form-data" class="mt-4" id="personalizar">
 
                         <div class="mb-3">
-                            <label for="color_tema" class="form-label">Color del Tema:</label>
-                            <select class="form-select" name="color_tema" id="color_tema">
-                                <option value="azul">Azul</option>
-                                <option value="amarillo_y_gris">Amarillo y Gris</option>
-                                <option value="blanco_y_gris">Blanco y Gris</option>
-                            </select>
+                            <label for="color_tema" class="form-label">Color primario:</label>
+                            <input type="text" class="form-control" name="color_1" id="color_1">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="color_tema" class="form-label">Color secundario:</label>
+                            <input type="text" class="form-control" name="color_2" id="color_2">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="color_tema" class="form-label">Color terciario:</label>
+                            <input type="text" class="form-control" name="color_3" id="color_3">
                         </div>
 
                         <div class="mb-3">
                             <label for="icono_principal" class="form-label">Ícono Principal:</label>
                             <input type="file" class="form-control" name="icono_principal" id="icono_principal">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="icono_blanco" class="form-label">Ícono Blanco:</label>
-                            <input type="file" class="form-control" name="icono_blanco" id="icono_blanco">
                         </div>
 
                         <div class="mb-3">
