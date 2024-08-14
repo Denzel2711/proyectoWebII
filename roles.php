@@ -112,9 +112,9 @@ if (!isset($_SESSION['usuario'])) {
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="./php/crudRoles.php" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
+                                    <form id="deleteForm" action="./php/crudRoles.php" method="POST" class="d-inline">
                                         <input type="hidden" name="delete_user_id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                                        <button type="submit" class="btn-delete">
+                                        <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>
@@ -128,6 +128,29 @@ if (!isset($_SESSION['usuario'])) {
             <p class="text-center">No se encontraron usuarios.</p>
         <?php endif; ?>
     </section>
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar este usuario?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+            document.getElementById('deleteForm').submit();
+        });
+    </script>
 </body>
 
 </html>

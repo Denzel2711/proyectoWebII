@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (mysqli_stmt_execute($stmt)) {
             echo "<script>
-                      alert('Rol actualizado correctamente');
                       window.location.href = '../roles.php'; 
                     </script>";
         } else {
@@ -41,7 +40,6 @@ if (isset($_POST['delete_user_id'])) {
 
     if (mysqli_stmt_execute($stmt)) {
         echo "<script>
-                    alert('Usuario eliminado correctamente');
                     window.location.href = '../roles.php'; 
                   </script>";
     } else {

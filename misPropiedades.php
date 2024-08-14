@@ -42,8 +42,19 @@ $resultado = mysqli_query($conection, $query);
                             <h5 class="card-title text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['titulo']; ?></h5>
                             <p class="card-text text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['descripcion']; ?></p>
                             <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio: $<?php echo number_format($propiedad['precio']); ?></p>
-                            <div class="d-flex justify-content-center">
-                                <a href="#" class="btn" id="vermas" style="border-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor2(); ?>;" onmouseover="this.style.backgroundColor='<?php mostrarColor2(); ?>', this.style.color='<?php mostrarColor1(); ?>';" onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor2(); ?>';">VER MÁS...</a>
+                            <div style="text-align: end;">
+                                <form id="updateForm" action="./php/obtenerPropiedad.php" method="POST" class="d-inline">
+                                    <input type="hidden" name="update_propiedad_id" value="<?php echo htmlspecialchars($propiedad['id']); ?>">
+                                    <a href="actualizarPropiedad.php?id=<?php echo $propiedad['id']; ?>" class="btn btn-primary">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                </form>
+                                <form id="deleteForm" action="./php/eliminarPropiedad.php" method="POST" class="d-inline">
+                                    <input type="hidden" name="delete_propiedad_id" value="<?php echo htmlspecialchars($propiedad['id']); ?>">
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -51,6 +62,29 @@ $resultado = mysqli_query($conection, $query);
             <?php endwhile; ?>
         </div>
     </div>
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar esta propiedad?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+            document.getElementById('deleteForm').submit();
+        });
+    </script>
 </body>
 
 </html>

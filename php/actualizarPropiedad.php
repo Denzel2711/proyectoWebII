@@ -2,7 +2,6 @@
 include_once 'conexion.php';
 include 'session.php';
 
-
 function subirImagen($fileInput)
 {
     $directorioRelativo = "./assets/img/";
@@ -12,7 +11,7 @@ function subirImagen($fileInput)
     $tipoArchivo = strtolower(pathinfo($archivoAbsoluto, PATHINFO_EXTENSION));
 
     if (isset($_FILES[$fileInput]) && $_FILES[$fileInput]['size'] > 0) {
-        if ($tipoArchivo == "jpg" || $tipoArchivo == "jpeg" || $tipoArchivo == "png" || $tipoArchivo == "gif" || $tipoArchivo == "webp") {
+        if (in_array($tipoArchivo, ["jpg", "jpeg", "png", "gif", "webp"])) {
             if (move_uploaded_file($_FILES[$fileInput]["tmp_name"], $archivoAbsoluto)) {
                 return $archivoRelativo;
             } else {
@@ -28,6 +27,7 @@ function subirImagen($fileInput)
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $propiedad_id = mysqli_real_escape_string($conection, $_POST['update_propiedad_id']); // Obtener el id de la propiedad
     $tipo_propiedad = mysqli_real_escape_string($conection, $_POST['tipo_propiedad']);
     $destacada = mysqli_real_escape_string($conection, $_POST['destacada']);
     $titulo = mysqli_real_escape_string($conection, $_POST['titulo']);
@@ -44,20 +44,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_query($conection, $queryImagen)) {
             $imagenID = mysqli_insert_id($conection);
 
-            $queryPropiedad = "INSERT INTO propiedades (tipo, destacada, titulo, descripcion, precio, agente_id, imagen_id) 
-                               VALUES ('$tipo_propiedad', '$destacada', '$titulo', '$descripcion', '$precio', '$usuario_id', '$imagenID')";
+            // Consulta de actualización con la cláusula WHERE que usa el id de la propiedad
+            $queryPropiedad = "UPDATE propiedades SET tipo = '$tipo_propiedad', destacada = '$destacada', titulo = '$titulo', descripcion = '$descripcion', precio = '$precio', agente_id = '$usuario_id', imagen_id = '$imagenID' WHERE id = '$propiedad_id'";
 
             if (mysqli_query($conection, $queryPropiedad)) {
-                header('Location: ../ingresarPropiedad.php');
+                header('Location: ../actualizarPropiedad.php?id=' . $propiedad_id);
             } else {
-                echo "Error al guardar la propiedad: " . mysqli_error($conection);
+                echo "Error al actualizar la propiedad: " . mysqli_error($conection);
             }
         } else {
             echo "Error al guardar la imagen: " . mysqli_error($conection);
         }
     } else {
-        echo "Error al subir la imagen.";
+        // Si no se sube una nueva imagen, se actualizan los demás campos sin cambiar la imagen
+        $queryPropiedad = "UPDATE propiedades SET tipo = '$tipo_propiedad', destacada = '$destacada', titulo = '$titulo', descripcion = '$descripcion', precio = '$precio', agente_id = '$usuario_id' WHERE id = '$propiedad_id'";
+
+        if (mysqli_query($conection, $queryPropiedad)) {
+            header('Location: ../actualizarPropiedad.php?id=' . $propiedad_id);
+        } else {
+            echo "Error al actualizar la propiedad: " . mysqli_error($conection);
+        }
     }
 }
-
-mysqli_close($conection);

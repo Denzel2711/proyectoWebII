@@ -54,7 +54,7 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                             <a class="nav-link" href="./misPropiedades.php">MIS PROPIEDADES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ingresarPropiedad.php">CREAR VENTA</a>
+                            <a class="nav-link" href="./ingresarPropiedad.php">NUEVA PROPIEDAD</a>
                         </li>
                     <?php elseif ($privilegio == 'publico') : ?>
                         <li class="nav-item">
