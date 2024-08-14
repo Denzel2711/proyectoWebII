@@ -36,10 +36,6 @@ include_once 'php/mostrar.php';
     <div id="footer">
         <?php include_once './assets/include/footer.php'; ?>
     </div>
-
-    <div class="text-center" style="background-color:black; padding:1%; margin: 0 auto">
-        <h5 style="color:white">Todos los derechos reservados. &copy;</h5>
-    </div>
 </body>
 
 </html>

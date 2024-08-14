@@ -5,16 +5,18 @@ include 'session.php';
 
 function subirImagen($fileInput)
 {
-    $directorio = "../assets/img/";
-    $archivo = $directorio . basename($_FILES[$fileInput]["name"]);
-    $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+    $directorioRelativo = "./assets/img/";
+    $archivoRelativo = $directorioRelativo . basename($_FILES[$fileInput]["name"]);
+    $directorioAbsoluto = "../assets/img/";
+    $archivoAbsoluto = $directorioAbsoluto . basename($_FILES[$fileInput]["name"]);
+    $tipoArchivo = strtolower(pathinfo($archivoAbsoluto, PATHINFO_EXTENSION));
 
     if (isset($_FILES[$fileInput]) && $_FILES[$fileInput]['size'] > 0) {
         if ($tipoArchivo == "jpg" || $tipoArchivo == "jpeg" || $tipoArchivo == "png" || $tipoArchivo == "gif") {
-            if (move_uploaded_file($_FILES[$fileInput]["tmp_name"], $archivo)) {
-                return $archivo;
+            if (move_uploaded_file($_FILES[$fileInput]["tmp_name"], $archivoAbsoluto)) {
+                return $archivoRelativo;
             } else {
-                echo "Error al mover el archivo a $archivo";
+                echo "Error al mover el archivo a $archivoAbsoluto";
             }
         } else {
             echo "Tipo de archivo no permitido.";

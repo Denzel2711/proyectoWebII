@@ -1,5 +1,5 @@
-<footer class="bg-warning text-dark py-4">
-    <div class="container">
+<footer class="pt-4" style="background-color: <?php mostrarColor3(); ?>; color: <?php mostrarColor1(); ?>;">
+    <div class="container pb-4">
         <div class="row text-center align-items-center">
             <div class="col-md-4">
                 <h2>INFORMACIÓN</h2>
@@ -41,11 +41,12 @@
                         <div class="g-recaptcha" data-sitekey="6Le1oyIqAAAAAHzEtxwEfFE2bml6IFY7SdOe02MX"></div>
                     </div>
                     <br>
-
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
-
             </div>
         </div>
+    </div>
+    <div class="text-center" style="background-color: <?php mostrarColor1(); ?>; color: <?php mostrarColor1(); ?>; padding:1%; margin: 0 auto">
+        <h5 style="color:white">Derechos reservados 2024 &copy;</h5>
     </div>
 </footer>
