@@ -1,6 +1,7 @@
 <?php
 include_once './php/conexion.php';
 include './php/session.php';
+include './php/mostrar.php';
 
 // Obtener el ID del usuario con la sesión iniciada
 $usuario_id = isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : '';
@@ -35,24 +36,20 @@ $resultado = mysqli_query($conection, $query);
         <h1 class="text-center mb-5">MIS PROPIEDADES</h1>
         <div class="row">
             <?php while ($propiedad = mysqli_fetch_assoc($resultado)) : ?>
-                <?php echo "<p>Ruta de la imagen: " . $propiedad['imagen_ruta'] . "</p>"; ?>
                 <div class="col-md-4">
                     <div class="card bg-dark">
                         <img src="<?php echo $propiedad['imagen_ruta']; ?>" alt="<?php echo $propiedad['titulo']; ?>">
                         <div class="card-body">
-                            <h5 class="card-title text-center" style="color:aliceblue"><?php echo $propiedad['titulo']; ?></h5>
-                            <p class="card-text text-center"><?php echo $propiedad['descripcion']; ?></p>
-                            <p class="text-warning text-center">Precio: $<?php echo number_format($propiedad['precio']); ?></p>
+                            <h5 class="card-title text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['titulo']; ?></h5>
+                            <p class="card-text text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['descripcion']; ?></p>
+                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio: $<?php echo number_format($propiedad['precio']); ?></p>
                             <div class="d-flex justify-content-center">
-                                <a href="#" class="btn btn-outline-light">VER MÁS...</a>
+                                <a href="#" class="btn" id="vermas" style="border-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor2(); ?>;" onmouseover="this.style.backgroundColor='<?php mostrarColor2(); ?>', this.style.color='<?php mostrarColor1(); ?>';" onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor2(); ?>';">VER MÁS...</a>
                             </div>
                         </div>
                     </div>
                 </div>
             <?php endwhile; ?>
-
-
-
         </div>
     </div>
 </body>

@@ -11,7 +11,7 @@
                             terreno y una de las mejores vistas del lugar</p>
                         <p class="text-warning text-center">Precio: $65000</p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-outline-light">VER MÁS...</a>
+                            <a href="#" class="btn" id="vermas" style="border-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor2(); ?>;" onmouseover="this.style.backgroundColor='<?php mostrarColor2(); ?>', this.style.color='<?php mostrarColor1(); ?>';" onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor2(); ?>';">VER MÁS...</a>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                             terreno y una de las mejores vistas del lugar</p>
                         <p class="text-warning text-center">Precio: $65000</p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-outline-light">VER MÁS...</a>
+                            <a href="#" class="btn" id="vermas" style="border-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor2(); ?>;" onmouseover="this.style.backgroundColor='<?php mostrarColor2(); ?>', this.style.color='<?php mostrarColor1(); ?>';" onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor2(); ?>';">VER MÁS...</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                             terreno y una de las mejores vistas del lugar</p>
                         <p class="text-warning text-center">Precio: $65000</p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-outline-light">VER MÁS...</a>
+                            <a href="#" class="btn" id="vermas" style="border-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor2(); ?>;" onmouseover="this.style.backgroundColor='<?php mostrarColor2(); ?>', this.style.color='<?php mostrarColor1(); ?>';" onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor2(); ?>';">VER MÁS...</a>
                         </div>
                     </div>
                 </div>
