@@ -13,9 +13,8 @@
                 <img src="<?php mostrarIconoPrincipal() ?>" alt="UTN Solutions Real Estate" class="mb-3" width="350" height="250px">
                 <div class="social-icons">
                     <a href="<?php mostrarEnlaceFacebook() ?>" class="text-dark mx-2"><i class="bi bi-facebook" style="font-size: 2.0rem;"></i></a>
-                    <a href="<?php mostrarEnlaceTwitter() ?>" class="text-dark mx-2"><i class="bi bi-twitter" style="font-size: 2.0rem;"></i></a>
-                    <a href="<?php mostrarEnlaceInstagram() ?>" class="text-dark mx-2"><i class="bi bi-instagram" style="font-size: 2.0rem;"></i></a>
                     <a href="<?php mostrarEnlaceYoutube() ?>" class="text-dark mx-2"><i class="bi bi-youtube" style="font-size: 2.0rem;"></i></a>
+                    <a href="<?php mostrarEnlaceInstagram() ?>" class="text-dark mx-2"><i class="bi bi-instagram" style="font-size: 2.0rem;"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
