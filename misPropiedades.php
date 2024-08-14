@@ -30,6 +30,7 @@ $resultado = mysqli_query($conection, $query);
 </head>
 
 <body>
+    <?php include_once './assets/include/navbar.php'; ?>
     <br>
     <div class="container">
         <h1 class="text-center mb-5">MIS PROPIEDADES</h1>
@@ -49,9 +50,6 @@ $resultado = mysqli_query($conection, $query);
                     </div>
                 </div>
             <?php endwhile; ?>
-
-
-
         </div>
     </div>
 </body>

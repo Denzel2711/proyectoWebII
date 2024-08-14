@@ -5,9 +5,9 @@ include './php/session.php';
 include './php/mostrar.php';
 
 if (!isset($_SESSION['usuario'])) {
-    header("Cache-Control: no-cache, no-store, must-revalidate"); 
+    header("Cache-Control: no-cache, no-store, must-revalidate");
     header("Pragma: no-cache");
-    header("Expires: 0"); 
+    header("Expires: 0");
     header("Location: login.php");
     exit();
 }
@@ -76,6 +76,7 @@ if (!isset($_SESSION['usuario'])) {
 </style>
 
 <body>
+    <?php include_once './assets/include/navbar.php'; ?>
     <section id="section-principal">
         <h1 class="text-center">Usuarios Registrados</h1>
         <?php if (mysqli_num_rows($resultUsuarios) > 0) : ?>
