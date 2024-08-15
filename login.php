@@ -20,8 +20,8 @@ include_once 'php/mostrar.php';
         <div class="signup">
             <form action="php/logicaLogin.php" method="post">
                 <label for="chk" aria-hidden="true">Iniciar</label>
-                <input type="email" name="correo" placeholder="Email" required="">
-                <input type="password" name="contrasena" placeholder="Password" required="">
+                <input type="email" name="correo" placeholder="Correo electrónico" required="">
+                <input type="password" name="contrasena" placeholder="Contraseña" required="">
                 <button type="submit" name="login">Iniciar Sesión</button>
             </form>
             <div style="text-align: center; padding-top:20px;">
@@ -36,7 +36,7 @@ include_once 'php/mostrar.php';
                 <input type="text" name="nombre" placeholder="Nombre" required="">
                 <input type="text" name="telefono" placeholder="Teléfono" required="">
                 <input type="text" name="usuario" placeholder="Usuario" required="">
-                <input type="email" name="correo" placeholder="Correo" required="">
+                <input type="email" name="correo" placeholder="Correo electrónico" required="">
                 <input type="password" name="contrasena" placeholder="Contraseña" required="">
                 <button type="submit" name="submit">Enviar</button>
             </form>
