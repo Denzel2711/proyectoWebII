@@ -1,5 +1,7 @@
 <?php
 include_once './php/mostrarAlquileres.php';
+$totalPropiedades = mysqli_num_rows($resultado);
+mysqli_data_seek($resultado, 0);
 ?>
 <section class="featured-properties py-5" style="background-color: <?php mostrarColor1(); ?>; color: <?php mostrarColor2(); ?>;">
     <div class="container">
@@ -17,10 +19,15 @@ include_once './php/mostrarAlquileres.php';
                     </div>
                 </div>
             <?php endwhile; ?>
-            <div class="d-flex justify-content-center mt-5">
-                <a href="./alquileres.php" class="btn" id="vermas" style="border-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor2(); ?>;"
-                    onmouseover="this.style.backgroundColor='<?php mostrarColor2(); ?>', this.style.color='<?php mostrarColor1(); ?>';"
-                    onmouseout="this.style.backgroundColor='transparent', this.style.color='<?php mostrarColor2(); ?>';">VER MÁS...</a>
-            </div>
+            <?php if ($totalPropiedades >= 3) : ?>
+                <div class="d-flex justify-content-center mt-5">
+                    <a href="./alquiler.php" class="btn" id="vermas" style="background-color: white; border-color: <?php mostrarColor1(); ?>; color: <?php mostrarColor1(); ?>;">
+                        VER MÁS...
+                    </a>
+                </div>
+            <?php endif; ?>
+
+
+
         </div>
 </section>
