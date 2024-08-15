@@ -13,6 +13,11 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
     .nav-link {
         font-size: 15px;
     }
+
+    /* Para cuando llegue a resolución móvil que las lineas del menú desplegable se hagan blancas (conocimiento adquirido) */
+    .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"%3E%3Cpath stroke="%23fff" stroke-width="2" d="M5 7h20M5 15h20M5 23h20" /%3E%3C/svg%3E');
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg" style="background-color:<?php mostrarColor1() ?>;">

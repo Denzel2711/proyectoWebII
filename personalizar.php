@@ -36,72 +36,72 @@ if (!isset($_SESSION['usuario'])) {
 
                         <div class="mb-3">
                             <label for="color_tema" class="form-label">Color primario:</label>
-                            <input type="text" class="form-control" name="color_1" id="color_1">
+                            <input type="text" class="form-control" name="color_1" id="color_1" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="color_tema" class="form-label">Color secundario:</label>
-                            <input type="text" class="form-control" name="color_2" id="color_2">
+                            <input type="text" class="form-control" name="color_2" id="color_2" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="color_tema" class="form-label">Color terciario:</label>
-                            <input type="text" class="form-control" name="color_3" id="color_3">
+                            <input type="text" class="form-control" name="color_3" id="color_3" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="icono_principal" class="form-label">Ícono Principal:</label>
-                            <input type="file" class="form-control" name="icono_principal" id="icono_principal">
+                            <input type="file" class="form-control" name="icono_principal" id="icono_principal" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="imagen_banner" class="form-label">Imagen del Banner:</label>
-                            <input type="file" class="form-control" name="imagen_banner" id="imagen_banner">
+                            <input type="file" class="form-control" name="imagen_banner" id="imagen_banner" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="mensaje_banner" class="form-label">Mensaje del Banner:</label>
-                            <input type="text" class="form-control" name="mensaje_banner" id="mensaje_banner">
+                            <input type="text" class="form-control" name="mensaje_banner" id="mensaje_banner" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="informacion_quienes_somos" class="form-label">Información "Quienes Somos":</label>
-                            <textarea class="form-control" name="informacion_quienes_somos" id="informacion_quienes_somos" rows="3"></textarea>
+                            <textarea class="form-control" name="informacion_quienes_somos" id="informacion_quienes_somos" rows="3" required></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="imagen_quienes_somos" class="form-label">Imagen "Quienes Somos":</label>
-                            <input type="file" class="form-control" name="imagen_quienes_somos" id="imagen_quienes_somos">
+                            <input type="file" class="form-control" name="imagen_quienes_somos" id="imagen_quienes_somos" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="enlace_facebook" class="form-label">Enlace Facebook:</label>
-                            <input type="text" class="form-control" name="enlace_facebook" id="enlace_facebook">
+                            <input type="text" class="form-control" name="enlace_facebook" id="enlace_facebook" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="enlace_youtube" class="form-label">Enlace youtube:</label>
-                            <input type="text" class="form-control" name="enlace_youtube" id="enlace_youtube">
+                            <label for="enlace_youtube" class="form-label">Enlace YouTube:</label>
+                            <input type="text" class="form-control" name="enlace_youtube" id="enlace_youtube" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="enlace_instagram" class="form-label">Enlace Instagram:</label>
-                            <input type="text" class="form-control" name="enlace_instagram" id="enlace_instagram">
+                            <input type="text" class="form-control" name="enlace_instagram" id="enlace_instagram" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="direccion" class="form-label">Dirección:</label>
-                            <input type="text" class="form-control" name="direccion" id="direccion">
+                            <input type="text" class="form-control" name="direccion" id="direccion" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Teléfono:</label>
-                            <input type="text" class="form-control" name="telefono" id="telefono">
+                            <input type="text" class="form-control" name="telefono" id="telefono" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" name="email" id="email">
+                            <input type="email" class="form-control" name="email" id="email" required>
                         </div>
 
                         <div class="text-center">
