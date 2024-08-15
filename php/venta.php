@@ -6,8 +6,7 @@ $query = "SELECT propiedades.titulo, propiedades.descripcion, propiedades.precio
     INNER JOIN imagenes ON propiedades.imagen_id = imagenes.id
     INNER JOIN usuarios ON propiedades.agente_id = usuarios.id
     WHERE propiedades.tipo = 'venta'
-    ORDER BY propiedades.fecha_creacion DESC
-    LIMIT 3";
+    ORDER BY propiedades.fecha_creacion DESC";
+
 
 $resultado = mysqli_query($conection, $query);
-?>

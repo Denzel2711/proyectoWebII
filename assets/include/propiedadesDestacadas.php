@@ -13,6 +13,10 @@ include_once './php/mostrarDestacados.php';
                             <h5 class="card-title text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['titulo']; ?></h5>
                             <p class="card-text text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['descripcion']; ?></p>
                             <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio: $<?php echo number_format($propiedad['precio']); ?></p>
+                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Creado por: <?php echo $propiedad['nombre_usuario']; ?></p>
+                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
+                                Propiedad en <?php echo ucfirst($propiedad['tipo']); ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -20,4 +24,5 @@ include_once './php/mostrarDestacados.php';
             <div class="d-flex justify-content-center mt-5">
             </div>
         </div>
+    </div>
 </section>

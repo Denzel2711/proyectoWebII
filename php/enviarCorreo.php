@@ -47,11 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port       = 587;
 
         $mail->setFrom('carodri323@gmail.com', 'Dufo');
-        $mail->addAddress($email);
+        $mail->addAddress('carodri323@gmail.com');
 
         $mail->isHTML(true);
         $mail->Subject = $name;
-        $mail->Body    = "<p>Mensaje: $message</p><p>Teléfono: $phone</p>";
+        $mail->Body    = "<p>Correo: $email</p><p>Teléfono: $phone</p><p>Mensaje: $message</p>";
 
         if ($mail->send()) {
             $sql = "INSERT INTO mensajescontacto (nombre, correo, mensaje) VALUES ('$name', '$email', '$message')";
