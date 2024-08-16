@@ -56,6 +56,9 @@ $cantidad_propiedades = mysqli_num_rows($resultado);
                                     Tipo: <?php echo ucfirst($propiedad['tipo']); ?>
                                 </p>
                                 <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
+                                    Destacada: <?php echo $propiedad['destacada'] == 1 ? 'Sí' : 'No'; ?>
+                                </p>
+                                <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
                                     Precio: $<?php echo number_format($propiedad['precio']); ?>
                                 </p>
                                 <div style="text-align: end;">
