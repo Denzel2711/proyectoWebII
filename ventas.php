@@ -4,6 +4,15 @@ include './php/session.php';
 include './php/mostrar.php';
 include_once './php/venta.php';
 
+if (!isset($_SESSION['usuario'])) {
+    header("Cache-Control: no-cache, no-store, must-revalidate");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+    header("Location: login.php");
+    exit();
+}
+
+
 $usuario_id = isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : '';
 ?>
 
@@ -13,7 +22,7 @@ $usuario_id = isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : '
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Propiedades</title>
+    <title>Ventas</title>
     <link rel="stylesheet" href="./style/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">

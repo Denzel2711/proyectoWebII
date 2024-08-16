@@ -3,6 +3,14 @@ include_once './php/conexion.php';
 include './php/session.php';
 include './php/mostrar.php';
 
+if (!isset($_SESSION['usuario'])) {
+    header("Cache-Control: no-cache, no-store, must-revalidate");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+    header("Location: login.php");
+    exit();
+}
+
 $usuario_id = isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : '';
 
 $query = "SELECT propiedades.*, imagenes.direccion AS imagen_ruta 
@@ -12,7 +20,6 @@ $query = "SELECT propiedades.*, imagenes.direccion AS imagen_ruta
 
 $resultado = mysqli_query($conection, $query);
 
-// Verifica si hay resultados
 $cantidad_propiedades = mysqli_num_rows($resultado);
 ?>
 
