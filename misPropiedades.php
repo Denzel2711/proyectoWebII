@@ -55,8 +55,8 @@ $resultado = mysqli_query($conection, $query);
                                     </a>
                                 </form>
                                 <form id="deleteForm" action="./php/eliminarPropiedad.php" method="POST" class="d-inline">
-                                    <input type="hidden" name="delete_propiedad_id" value="<?php echo htmlspecialchars($propiedad['id']); ?>">
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                                    <input type="hidden" name="delete_propiedad_id" id="delete_propiedad_id" value="">
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-propiedad-id="<?php echo $propiedad['id']; ?>">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </form>
@@ -86,6 +86,13 @@ $resultado = mysqli_query($conection, $query);
     </div>
 
     <script>
+        document.querySelectorAll('[data-bs-target="#confirmDeleteModal"]').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var propiedadId = button.getAttribute('data-propiedad-id');
+                document.getElementById('delete_propiedad_id').value = propiedadId;
+            });
+        });
+
         document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
             document.getElementById('deleteForm').submit();
         });

@@ -12,11 +12,16 @@ include_once './php/mostrarDestacados.php';
                         <div class="card-body">
                             <h5 class="card-title text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['titulo']; ?></h5>
                             <p class="card-text text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['descripcion']; ?></p>
-                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio: $<?php echo number_format($propiedad['precio']); ?></p>
-                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Creado por: <?php echo $propiedad['nombre_usuario']; ?></p>
                             <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
                                 Propiedad en <?php echo ucfirst($propiedad['tipo']); ?>
                             </p>
+                            <?php if ($propiedad['tipo'] == 'venta') : ?>
+                                <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio: $<?php echo number_format($propiedad['precio']); ?></p>
+                            <?php elseif ($propiedad['tipo'] == 'alquiler') : ?>
+                                <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio mensual: $<?php echo number_format($propiedad['precio']); ?></p>
+                            <?php endif; ?>
+                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Agente de ventas: <?php echo $propiedad['nombre_usuario']; ?></p>
+                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Teléfono: <?php echo $propiedad['telefono_usuario']; ?></p>
                         </div>
                     </div>
                 </div>
