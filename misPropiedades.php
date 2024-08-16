@@ -12,6 +12,8 @@ $query = "SELECT propiedades.*, imagenes.direccion AS imagen_ruta
 
 $resultado = mysqli_query($conection, $query);
 
+// Verifica si hay resultados
+$cantidad_propiedades = mysqli_num_rows($resultado);
 ?>
 
 <!DOCTYPE html>
@@ -33,39 +35,44 @@ $resultado = mysqli_query($conection, $query);
     <br>
     <div class="container">
         <h1 class="text-center mb-5">MIS PROPIEDADES</h1>
-        <div class="row">
-            <?php while ($propiedad = mysqli_fetch_assoc($resultado)) : ?>
-                <div class="col-md-4 mb-5">
-                    <div class="card" style="background-color: <?php mostrarColor1(); ?>;">
-                        <img src="<?php echo $propiedad['imagen_ruta']; ?>" alt="<?php echo $propiedad['titulo']; ?>">
-                        <div class="card-body">
-                            <h5 class="card-title text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['titulo']; ?></h5>
-                            <p class="card-text text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['descripcion']; ?></p>
-                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
-                                Tipo: <?php echo ucfirst($propiedad['tipo']); ?>
-                            </p>
-                            <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
-                                Precio: $<?php echo number_format($propiedad['precio']); ?>
-                            </p>
-                            <div style="text-align: end;">
-                                <form id="updateForm" action="./php/obtenerPropiedad.php" method="POST" class="d-inline">
-                                    <input type="hidden" name="update_propiedad_id" value="<?php echo htmlspecialchars($propiedad['id']); ?>">
-                                    <a href="actualizarPropiedad.php?id=<?php echo $propiedad['id']; ?>" class="btn btn-primary">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                </form>
-                                <form id="deleteForm" action="./php/eliminarPropiedad.php" method="POST" class="d-inline">
-                                    <input type="hidden" name="delete_propiedad_id" id="delete_propiedad_id" value="">
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-propiedad-id="<?php echo $propiedad['id']; ?>">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
+
+        <?php if ($cantidad_propiedades > 0): ?>
+            <div class="row">
+                <?php while ($propiedad = mysqli_fetch_assoc($resultado)) : ?>
+                    <div class="col-md-4 mb-5">
+                        <div class="card" style="background-color: <?php mostrarColor1(); ?>;">
+                            <img src="<?php echo $propiedad['imagen_ruta']; ?>" alt="<?php echo $propiedad['titulo']; ?>">
+                            <div class="card-body">
+                                <h5 class="card-title text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['titulo']; ?></h5>
+                                <p class="card-text text-center" style="color: <?php mostrarColor2(); ?>;"><?php echo $propiedad['descripcion']; ?></p>
+                                <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
+                                    Tipo: <?php echo ucfirst($propiedad['tipo']); ?>
+                                </p>
+                                <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
+                                    Precio: $<?php echo number_format($propiedad['precio']); ?>
+                                </p>
+                                <div style="text-align: end;">
+                                    <form id="updateForm" action="./php/obtenerPropiedad.php" method="POST" class="d-inline">
+                                        <input type="hidden" name="update_propiedad_id" value="<?php echo htmlspecialchars($propiedad['id']); ?>">
+                                        <a href="actualizarPropiedad.php?id=<?php echo $propiedad['id']; ?>" class="btn btn-primary">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                    </form>
+                                    <form id="deleteForm" action="./php/eliminarPropiedad.php" method="POST" class="d-inline">
+                                        <input type="hidden" name="delete_propiedad_id" id="delete_propiedad_id" value="">
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-propiedad-id="<?php echo $propiedad['id']; ?>">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php endwhile; ?>
-        </div>
+                <?php endwhile; ?>
+            </div>
+        <?php else: ?>
+            <h3 class="text-center">No tienes propiedades creadas.</h3>
+        <?php endif; ?>
     </div>
     <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
         <div class="modal-dialog">

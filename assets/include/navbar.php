@@ -2,7 +2,9 @@
 include './php/session.php';
 include './php/conexion.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
+if (isset($_POST['logout'])) {
+    session_start();
+    session_unset();
     session_destroy();
     header("Location: login.php");
     exit();
