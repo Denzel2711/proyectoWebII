@@ -1,6 +1,10 @@
 <?php
 include_once 'php/conexion.php';
 include_once 'php/mostrar.php';
+
+session_start();
+$errores = isset($_SESSION['errores']) ? $_SESSION['errores'] : array();
+unset($_SESSION['errores']);
 ?>
 
 <!DOCTYPE html>
@@ -21,14 +25,22 @@ include_once 'php/mostrar.php';
             <form action="php/logicaLogin.php" method="post">
                 <label for="chk" aria-hidden="true">Iniciar</label>
                 <input type="email" name="correo" placeholder="Correo electrónico" required="">
+                <?php if(isset($errores['correo'])): ?>
+                    <div style="text-align: center; color: red; font-size: 0.9em;"><?php echo $errores['correo']; ?></div>
+                <?php endif; ?>
                 <input type="password" name="contrasena" placeholder="Contraseña" required="">
+                <?php if(isset($errores['contrasena'])): ?>
+                    <div style="text-align: center; color: red; font-size: 0.9em;"><?php echo $errores['contrasena']; ?></div>
+                <?php endif; ?>
+                <?php if(isset($errores['login'])): ?>
+                    <div style="text-align: center; color: red; font-size: 0.9em;"><?php echo $errores['login']; ?></div>
+                <?php endif; ?>
                 <button type="submit" name="login">Iniciar Sesión</button>
             </form>
             <div style="text-align: center; padding-top:20px;">
                 <img style="border-radius: 10px;" src="<?php mostrarIconoPrincipal() ?>" alt="" width="130" height="110px">
             </div>
         </div>
-
 
         <div class="login">
             <form action="php/logicaRegistro.php" method="post">
@@ -41,9 +53,7 @@ include_once 'php/mostrar.php';
                 <button type="submit" name="submit">Enviar</button>
             </form>
         </div>
-
     </div>
-
 </body>
 
 </html>

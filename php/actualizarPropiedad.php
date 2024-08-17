@@ -27,7 +27,7 @@ function subirImagen($fileInput)
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $propiedad_id = mysqli_real_escape_string($conection, $_POST['update_propiedad_id']); // Obtener el id de la propiedad
+    $propiedad_id = mysqli_real_escape_string($conection, $_POST['update_propiedad_id']);
     $tipo_propiedad = mysqli_real_escape_string($conection, $_POST['tipo_propiedad']);
     $destacada = mysqli_real_escape_string($conection, $_POST['destacada']);
     $titulo = mysqli_real_escape_string($conection, $_POST['titulo']);
@@ -44,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_query($conection, $queryImagen)) {
             $imagenID = mysqli_insert_id($conection);
 
-            // Consulta de actualización con la cláusula WHERE que usa el id de la propiedad
             $queryPropiedad = "UPDATE propiedades SET tipo = '$tipo_propiedad', destacada = '$destacada', titulo = '$titulo', descripcion = '$descripcion', precio = '$precio', agente_id = '$usuario_id', imagen_id = '$imagenID' WHERE id = '$propiedad_id'";
 
             if (mysqli_query($conection, $queryPropiedad)) {
@@ -56,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Error al guardar la imagen: " . mysqli_error($conection);
         }
     } else {
-        // Si no se sube una nueva imagen, se actualizan los demás campos sin cambiar la imagen
         $queryPropiedad = "UPDATE propiedades SET tipo = '$tipo_propiedad', destacada = '$destacada', titulo = '$titulo', descripcion = '$descripcion', precio = '$precio', agente_id = '$usuario_id' WHERE id = '$propiedad_id'";
 
         if (mysqli_query($conection, $queryPropiedad)) {
