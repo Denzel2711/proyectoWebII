@@ -53,6 +53,9 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                         <li class="nav-item">
                             <a class="nav-link" href="./roles.php">ROLES</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./miPerfil.php">MI PERFIL</a>
+                        </li>
                     <?php elseif ($privilegio == 'agente_de_ventas') : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="./index.php">INICIO</a>
@@ -62,6 +65,9 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./ingresarPropiedad.php">NUEVA PROPIEDAD</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./miPerfil.php">MI PERFIL</a>
                         </li>
                     <?php elseif ($privilegio == 'publico') : ?>
                         <li class="nav-item">
@@ -81,8 +87,8 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                         </li>
                     <?php endif; ?>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <form class="d-flex" method="GET" action="propiedadBuscada.php">
+                    <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
                 </form>
                 <br>
@@ -109,7 +115,7 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                         <a class="nav-link" href="#footer">CONTACTENOS</a>
                     </li>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                        <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Search">
                         <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                     <br>
