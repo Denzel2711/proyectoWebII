@@ -85,6 +85,9 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                         <li class="nav-item">
                             <a class="nav-link" href="#footer">CONTACTENOS</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./miPerfil.php">MI PERFIL</a>
+                        </li>
                     <?php endif; ?>
                 </ul>
                 <form class="d-flex" method="GET" action="propiedadBuscada.php">

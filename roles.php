@@ -87,7 +87,7 @@ if (!isset($_SESSION['usuario'])) {
                         <tr>
                             <th class="text-center">IdUsuario</th>
                             <th class="text-center">Nombre</th>
-                            <th class="text-center">Telefono</th>
+                            <th class="text-center">Teléfono</th>
                             <th class="text-center">Correo</th>
                             <th class="text-center">Usuario</th>
                             <th class="text-center">Rol</th>
@@ -108,17 +108,35 @@ if (!isset($_SESSION['usuario'])) {
                                         <select class="form-select" name="role_id" onchange="this.form.submit()">
                                             <option value="administrador" <?php echo $row['privilegio'] == 'administrador' ? 'selected' : ''; ?>>Administrador</option>
                                             <option value="agente_de_ventas" <?php echo $row['privilegio'] == 'agente_de_ventas' ? 'selected' : ''; ?>>Ventas</option>
-                                            <option value="publico" <?php echo $row['privilegio'] == 'publico' ? 'selected' : ''; ?>>Publico</option>
+                                            <option value="publico" <?php echo $row['privilegio'] == 'publico' ? 'selected' : ''; ?>>Público</option>
                                         </select>
                                     </form>
                                 </td>
                                 <td>
-                                    <form id="deleteForm" action="./php/crudRoles.php" method="POST" class="d-inline">
+                                    <form action="./php/crudRoles.php" method="POST" class="d-inline">
                                         <input type="hidden" name="delete_user_id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                                        <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                                        <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-<?php echo htmlspecialchars($row['id']); ?>">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>
+
+                                    <div class="modal fade" id="confirmDeleteModal-<?php echo htmlspecialchars($row['id']); ?>" tabindex="-1" aria-labelledby="confirmDeleteLabel-<?php echo htmlspecialchars($row['id']); ?>" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="confirmDeleteLabel-<?php echo htmlspecialchars($row['id']); ?>">Confirmar Eliminación</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ¿Estás seguro de que deseas eliminar este usuario?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <button type="button" class="btn btn-danger" onclick="document.querySelector('form[action=\'./php/crudRoles.php\'][method=\'POST\'][class=\'d-inline\'] input[name=\'delete_user_id\'][value=\'<?php echo htmlspecialchars($row['id']); ?>\']').form.submit();">Eliminar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -129,29 +147,7 @@ if (!isset($_SESSION['usuario'])) {
             <p class="text-center">No se encontraron usuarios.</p>
         <?php endif; ?>
     </section>
-    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmDeleteLabel">Confirmar Eliminación</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    ¿Estás seguro de que deseas eliminar este usuario?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
-            document.getElementById('deleteForm').submit();
-        });
-    </script>
 </body>
 
 </html>

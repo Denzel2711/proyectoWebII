@@ -36,7 +36,7 @@ if (!isset($_SESSION['usuario'])) {
 
                         <div class="mb-3">
                             <label for="color_tema" class="form-label">Tipo de Propiedad</label>
-                            <select class="form-select" name="tipo_propiedad" id="color_tema">
+                            <select class="form-select" name="tipo_propiedad" id="color_tema" required>
                                 <option value="Alquiler">Alquiler</option>
                                 <option value="Venta">Venta</option>
                             </select>
@@ -44,7 +44,7 @@ if (!isset($_SESSION['usuario'])) {
 
                         <div class="mb-3">
                             <label for="destacada" class="form-label">Destacada</label>
-                            <select class="form-select" name="destacada" id="destacada">
+                            <select class="form-select" name="destacada" id="destacada" required>
                                 <option value="0">No</option>
                                 <option value="1">Si</option>
                             </select>
@@ -52,22 +52,22 @@ if (!isset($_SESSION['usuario'])) {
 
                         <div class="mb-3">
                             <label for="titulo" class="form-label">Titulo</label>
-                            <input type="text" class="form-control" name="titulo" id="titulo">
+                            <input type="text" class="form-control" name="titulo" id="titulo" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="descripcion" class="form-label">Descripción</label>
-                            <input type="text" class="form-control" name="descripcion" id="descripcion">
+                            <input type="text" class="form-control" name="descripcion" id="descripcion" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="precio" class="form-label">Precio</label>
-                            <input type="number" class="form-control" name="precio" id="precio" min="0">
+                            <input type="number" class="form-control" name="precio" id="precio" min="0" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="imagen" class="form-label">Imagen</label>
-                            <input type="file" class="form-control" name="imagen" id="imagen">
+                            <input type="file" class="form-control" name="imagen" id="imagen" required>
                         </div>
 
                         <div class="text-center">
