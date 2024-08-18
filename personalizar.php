@@ -36,72 +36,78 @@ if (!isset($_SESSION['usuario'])) {
 
                         <div class="mb-3">
                             <label for="color_tema" class="form-label">Color primario:</label>
-                            <input type="text" class="form-control" name="color_1" id="color_1" required>
+                            <input type="color" class="form-control" name="color_1" id="color_1" value="<?php mostrarColor1(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="color_tema" class="form-label">Color secundario:</label>
-                            <input type="text" class="form-control" name="color_2" id="color_2" required>
+                            <input type="color" class="form-control" name="color_2" id="color_2" value="<?php mostrarColor2(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="color_tema" class="form-label">Color terciario:</label>
-                            <input type="text" class="form-control" name="color_3" id="color_3" required>
+                            <input type="color" class="form-control" name="color_3" id="color_3" value="<?php mostrarColor3(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="icono_principal" class="form-label">Ícono Principal:</label>
-                            <input type="file" class="form-control" name="icono_principal" id="icono_principal" required>
+                            <input type="file" class="form-control" name="icono_principal" id="icono_principal">
+                            <br>
+                            <p>Ícono principal actual: <img src="<?php mostrarIconoPrincipal(); ?>" alt="Icono Principal" style="max-width: 100px;"></p>
                         </div>
 
                         <div class="mb-3">
                             <label for="imagen_banner" class="form-label">Imagen del Banner:</label>
-                            <input type="file" class="form-control" name="imagen_banner" id="imagen_banner" required>
+                            <input type="file" class="form-control" name="imagen_banner" id="imagen_banner">
+                            <br>
+                            <p>Imagen del banner actual: <img src="<?php mostrarImagenBanner(); ?>" alt="Imagen del Banner" style="max-width: 100px;"></p>
                         </div>
 
                         <div class="mb-3">
                             <label for="mensaje_banner" class="form-label">Mensaje del Banner:</label>
-                            <input type="text" class="form-control" name="mensaje_banner" id="mensaje_banner" required>
+                            <input type="text" class="form-control" name="mensaje_banner" id="mensaje_banner" value="<?php mostrarMensajeBanner(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="informacion_quienes_somos" class="form-label">Información "Quienes Somos":</label>
-                            <textarea class="form-control" name="informacion_quienes_somos" id="informacion_quienes_somos" rows="3" required></textarea>
+                            <textarea class="form-control" name="informacion_quienes_somos" id="informacion_quienes_somos" rows="3" required><?php mostrarInformacionQuienesSomos(); ?></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="imagen_quienes_somos" class="form-label">Imagen "Quienes Somos":</label>
-                            <input type="file" class="form-control" name="imagen_quienes_somos" id="imagen_quienes_somos" required>
+                            <input type="file" class="form-control" name="imagen_quienes_somos" id="imagen_quienes_somos">
+                            <br>
+                            <p>Imagen quienes somos actual: <img src="<?php mostrarImagenQuienesSomos(); ?>" alt="Imagen Quienes Somos" style="max-width: 100px;"></p>
                         </div>
 
                         <div class="mb-3">
                             <label for="enlace_facebook" class="form-label">Enlace Facebook:</label>
-                            <input type="text" class="form-control" name="enlace_facebook" id="enlace_facebook" required>
+                            <input type="text" class="form-control" name="enlace_facebook" id="enlace_facebook" value="<?php mostrarEnlaceFacebook(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="enlace_youtube" class="form-label">Enlace YouTube:</label>
-                            <input type="text" class="form-control" name="enlace_youtube" id="enlace_youtube" required>
+                            <input type="text" class="form-control" name="enlace_youtube" id="enlace_youtube" value="<?php mostrarEnlaceYoutube(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="enlace_instagram" class="form-label">Enlace Instagram:</label>
-                            <input type="text" class="form-control" name="enlace_instagram" id="enlace_instagram" required>
+                            <input type="text" class="form-control" name="enlace_instagram" id="enlace_instagram" value="<?php mostrarEnlaceInstagram(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="direccion" class="form-label">Dirección:</label>
-                            <input type="text" class="form-control" name="direccion" id="direccion" required>
+                            <input type="text" class="form-control" name="direccion" id="direccion" value="<?php mostrarDireccion(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Teléfono:</label>
-                            <input type="text" class="form-control" name="telefono" id="telefono" required>
+                            <input type="text" class="form-control" name="telefono" id="telefono" value="<?php mostrarTelefono(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" name="email" id="email" required>
+                            <input type="email" class="form-control" name="email" id="email" value="<?php mostrarEmail(); ?>" required>
                         </div>
 
                         <div class="text-center">
@@ -109,6 +115,7 @@ if (!isset($_SESSION['usuario'])) {
                         </div>
 
                     </form>
+
                 </div>
             </div>
         </div>

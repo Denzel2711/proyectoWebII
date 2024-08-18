@@ -2,7 +2,6 @@
 include_once 'conexion.php';
 include 'session.php';
 
-
 function subirImagen($fileInput)
 {
     $directorioRelativo = "./assets/img/";
@@ -12,19 +11,27 @@ function subirImagen($fileInput)
     $tipoArchivo = strtolower(pathinfo($archivoAbsoluto, PATHINFO_EXTENSION));
 
     if (isset($_FILES[$fileInput]) && $_FILES[$fileInput]['size'] > 0) {
-        if ($tipoArchivo == "jpg" || $tipoArchivo == "jpeg" || $tipoArchivo == "png" || $tipoArchivo == "gif" || $tipoArchivo == "webp") {
+        if (in_array($tipoArchivo, ["jpg", "jpeg", "png", "gif", "webp"])) {
             if (move_uploaded_file($_FILES[$fileInput]["tmp_name"], $archivoAbsoluto)) {
                 return $archivoRelativo;
             } else {
-                echo "Error al mover el archivo a $archivoAbsoluto";
+                echo "<script>
+                        alert('Error al mover el archivo.');
+                        window.location.href = '../ingresarPropiedad.php';
+                      </script>";
             }
         } else {
-            echo "Tipo de archivo no permitido.";
+            echo "<script>
+            alert('Tipo de archivo no permitido.');
+            window.location.href = '../ingresarPropiedad.php';
+          </script>";
         }
     } else {
-        echo "No se ha subido ningún archivo o el archivo está vacío.";
+        echo "<script>
+        alert('El archuivo está vacio.');
+        window.location.href = '../ingresarPropiedad.php';
+      </script>";
     }
-    return null;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -48,15 +55,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                VALUES ('$tipo_propiedad', '$destacada', '$titulo', '$descripcion', '$precio', '$usuario_id', '$imagenID')";
 
             if (mysqli_query($conection, $queryPropiedad)) {
-                header('Location: ../ingresarPropiedad.php');
+                echo "<script>
+                        alert('Propiedad guardada exitosamente.');
+                        window.location.href = '../ingresarPropiedad.php';
+                      </script>";
+                exit();
             } else {
-                echo "Error al guardar la propiedad: " . mysqli_error($conection);
-            }
+                echo "<script>
+                alert('Error al guardar la propiedad.');
+                window.location.href = '../ingresarPropiedad.php';
+              </script>";            }
         } else {
-            echo "Error al guardar la imagen: " . mysqli_error($conection);
-        }
-    } else {
-        echo "Error al subir la imagen.";
+            echo "<script>
+            alert('Error al guardar la imagen.');
+            window.location.href = '../ingresarPropiedad.php';
+          </script>";        }
     }
 }
 

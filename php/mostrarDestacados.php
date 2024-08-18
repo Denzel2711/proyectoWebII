@@ -10,4 +10,3 @@ $query = "SELECT propiedades.titulo, propiedades.descripcion, propiedades.precio
     LIMIT 3";
 
 $resultado = mysqli_query($conection, $query);
-?>

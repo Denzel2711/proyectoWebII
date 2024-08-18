@@ -1,9 +1,37 @@
 <?php
-include_once './php/mostrarDestacados.php';
-$totalPropiedades = mysqli_num_rows($resultado);
-mysqli_data_seek($resultado, 0);
+include_once './php/conexion.php';
+include './php/session.php';
+include './php/mostrar.php';
+include_once './php/destacadas.php';
+
+if (!isset($_SESSION['usuario'])) {
+    header("Cache-Control: no-cache, no-store, must-revalidate");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+    header("Location: login.php");
+    exit();
+}
+
+$usuario_id = isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : '';
 ?>
-<section class="featured-properties py-5" style="background-color: <?php mostrarColor1(); ?>; color: <?php mostrarColor2(); ?>;">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./php/dynamic-styles.php">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body style="background-color: <?php mostrarColor2(); ?>; color: <?php mostrarColor1(); ?>;">
+    <?php include_once './assets/include/navbar.php'; ?>
+    <br>
     <div class="container">
         <h2 class="text-center mb-5">PROPIEDADES DESTACADAS</h2>
         <div class="row">
@@ -26,15 +54,15 @@ mysqli_data_seek($resultado, 0);
                             <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Teléfono: <?php echo $propiedad['telefono_usuario']; ?></p>
                         </div>
                     </div>
+                    <br>
                 </div>
             <?php endwhile; ?>
-            <?php if ($totalPropiedades >= 3) : ?>
-                <div class="d-flex justify-content-center mt-5">
-                    <a href="./destacadas.php" class="btn" id="vermas" style="background-color: white; border-color: <?php mostrarColor1(); ?>; color: <?php mostrarColor1(); ?>;">
-                        VER MÁS...
-                    </a>
-                </div>
-            <?php endif; ?>
         </div>
     </div>
-</section>
+</body>
+
+</html>
+
+<?php
+mysqli_close($conection);
+?>
