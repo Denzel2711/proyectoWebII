@@ -58,9 +58,11 @@ $cantidad_propiedades = mysqli_num_rows($resultado);
                                 <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
                                     Destacada: <?php echo $propiedad['destacada'] == 1 ? 'Sí' : 'No'; ?>
                                 </p>
-                                <p class="text-center" style="color: <?php mostrarColor3(); ?>;">
-                                    Precio: $<?php echo number_format($propiedad['precio']); ?>
-                                </p>
+                                <?php if ($propiedad['tipo'] == 'venta') : ?>
+                                    <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio: $<?php echo number_format($propiedad['precio']); ?></p>
+                                <?php elseif ($propiedad['tipo'] == 'alquiler') : ?>
+                                    <p class="text-center" style="color: <?php mostrarColor3(); ?>;">Precio mensual: $<?php echo number_format($propiedad['precio']); ?></p>
+                                <?php endif; ?>
                                 <div style="text-align: end;">
                                     <form id="updateForm" action="./php/obtenerPropiedad.php" method="POST" class="d-inline">
                                         <input type="hidden" name="update_propiedad_id" value="<?php echo htmlspecialchars($propiedad['id']); ?>">
