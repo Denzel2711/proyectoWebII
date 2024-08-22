@@ -22,19 +22,19 @@
                 <form class="custom-form" action="php/enviarCorreo.php" method="post">
                     <div class="form-group">
                         <label for="name">Nombre:</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Teléfono:</label>
-                        <input type="tel" class="form-control" id="phone" name="phone">
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Mensaje:</label>
-                        <textarea class="form-control" id="message" rows="2" name="message"></textarea>
+                        <textarea class="form-control" id="message" rows="2" name="message" required></textarea>
                     </div>
                     <br>
                     <div class="form-group d-flex justify-content-center">

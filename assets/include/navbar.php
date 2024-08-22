@@ -74,16 +74,13 @@ $nombreUsuario = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['n
                             <a class="nav-link" href="./index.php">INICIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#destacadas">DESTACADAS</a>
+                            <a class="nav-link" href="destacadas.php">DESTACADAS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./ventas.php">VENTAS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./alquileres.php">ALQUILERES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#footer">CONTACTENOS</a>
+                            <a class="nav-link" href="./alquiler.php">ALQUILERES</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./miPerfil.php">MI PERFIL</a>

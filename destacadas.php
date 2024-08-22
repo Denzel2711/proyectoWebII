@@ -55,6 +55,7 @@ $usuario_id = isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : '
                         </div>
                     </div>
                     <br>
+                    <br>
                 </div>
             <?php endwhile; ?>
         </div>

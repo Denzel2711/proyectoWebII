@@ -18,7 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $captcha = $_POST['g-recaptcha-response'];
 
     if (!$captcha) {
-        echo "Por favor, verifica el captcha.";
+        echo "<script>alert('Por favor, verifica el captcha.');
+            window.location.href = '../index.php';
+         </script>";
         exit;
     }
 
@@ -27,12 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $responseKeys = json_decode($response, true);
 
     if (intval($responseKeys["success"]) !== 1) {
-        echo "Verificación de captcha fallida. Por favor, inténtalo de nuevo.";
+        echo "<script>alert('Verificación de captcha fallida. Por favor, inténtalo de nuevo.');
+            window.location.href = '../index.php';        
+        </script>";
         exit;
     }
 
     if (isset($responseKeys["score"]) && $responseKeys["score"] < 0.5) {
-        echo "La verificación del captcha indica un comportamiento sospechoso. Por favor, inténtalo de nuevo.";
+        echo "<script>alert('La verificación del captcha indica un comportamiento sospechoso. Por favor, inténtalo de nuevo.');
+        window.location.href = '../index.php';
+        </script>";
         exit;
     }
 
@@ -60,12 +66,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ../index.php");
                 exit();
             } else {
-                echo "Error al guardar los datos: " . mysqli_error($conection);
+                echo "<script>alert('Error al guardar los datos: " . mysqli_error($conection) . "');
+                  window.location.href = '../index.php';
+                </script>";
             }
         } else {
-            echo "El correo no pudo ser enviado. Error de PHPMailer: {$mail->ErrorInfo}";
+            echo "<script>alert('El correo no pudo ser enviado. Error de PHPMailer: {$mail->ErrorInfo}');
+             window.location.href = '../index.php';
+            </script>";
         }
     } catch (Exception $e) {
-        echo "Error al enviar el correo: " . $mail->ErrorInfo;
+        echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');
+           window.location.href = '../index.php';
+        </script>";
     }
 }

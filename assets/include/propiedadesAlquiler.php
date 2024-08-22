@@ -28,6 +28,6 @@ mysqli_data_seek($resultado, 0);
                     </a>
                 </div>
             <?php endif; ?>
-        </div>
+        </div>        
     </div>
 </section>
