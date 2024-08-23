@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (isset($_POST['delete_user_id'])) {
             $userId = intval($_POST['delete_user_id']);
-            $query = "DELETE FROM usuarios WHERE id = ?";
+            $query = "DELETE FROM usuarios WHERE id = ? AND privilegio != 'administrador'";
             $stmt = mysqli_prepare($conection, $query);
             mysqli_stmt_bind_param($stmt, 'i', $userId);
 
